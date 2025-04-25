@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <link rel="stylesheet" href="style_Rahul.css">
+</head>
+<body>
+    <div class="container">
+        <div class="todo-app">
+            <h2>To-Do List <img src="./images/icon.png" ></h2>
+            <div class="work">
+                <input type="text" placeholder="Add your task">
+                <button class="Add">Add</button>
+            </div>
+            <div class="list">
+                <!-- <div class="warp"> -->
+                    <button class="work_status"><img src="./images/unchecked.png" alt=""><h4>work</h4></button>
+                <!-- </div> -->
+                <button class="remove_work">x</button>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    function clonediv(kam){
+
+        String.prototype.capitalize = function() {
+            return this.charAt(0).toUpperCase() + this.slice(1);
+        }
+
+        const orignal = document.querySelector('.list')
+        const newDiv = orignal.cloneNode(true)
+        newDiv.querySelector('h4').innerHTML = kam.capitalize()
+        newDiv.style.display = "flex"
+        let checked = false
+        document.querySelector('.todo-app').appendChild(newDiv)
+
+        newDiv.querySelector('.work_status').addEventListener('click', () => {
+            if(!checked){
+                newDiv.querySelector('img').src = "./images/checked.png"
+            newDiv.querySelector('h4').style.textDecoration = "line-through";
+            checked = true
+            }else{
+                newDiv.querySelector('img').src = "./images/unchecked.png"
+            newDiv.querySelector('h4').style.textDecoration = "";
+            checked = false
+            }
+            
+        });
+
+        newDiv.querySelector('.remove_work').addEventListener('click', () => {
+            newDiv.parentNode.removeChild(newDiv);
+        });
+
+        
+    }
+    
+    document.querySelector('.Add').addEventListener('click', () =>{
+        const work_input = document.querySelector('.work input').value
+        document.querySelector('.work input').value = ""
+        clonediv(work_input)
+    })
+</script>
+</html>

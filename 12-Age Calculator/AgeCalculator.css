@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(135deg,#6d35f1, #a0c5ff);
+}
+
+.container{
+    margin-top: 10%;
+    margin-left: 10%;
+    padding: 10px;
+}
+
+.container h1{
+    font-size: 60px;
+    font-weight: 800;
+    color: #fff;
+}
+
+.container  h1 span{
+    color: rgb(255, 255, 93);
+}
+
+.inputbox{
+    width: 40%;
+    height: 100px;
+    margin-top: 40px;
+    background: linear-gradient(135deg,#6d35f1, #a0c5ff);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.inputbox #Age{
+    width: 70%;
+    height: 50px;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    padding: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.inputbox button{
+    width: 30%;
+    height: 45px;
+    margin-left: 20px;
+    border: 0;
+    outline: 0;
+    background: rgb(255, 255, 93);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+
+}
+
+.container h3{
+    font-size: 20px;
+    margin-top: 40px;
+    color: #fff;
+}

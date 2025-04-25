@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="AgeCalculator.css">
+</head>
+<body>
+    <div class="container">
+        <h1>JavaScript<br><span>Age Calculator</span></h1>
+        <div class="inputbox">
+            <input type="date" id="Age">
+            <button>Calculate</button>
+        </div>
+        <h3></h3>
+    </div>
+</body>
+<script>
+    let userAge = document.getElementById("Age")   
+    document.querySelector("button").addEventListener("click", function(){
+        let selectedDate = new Date(userAge.value)
+        let currentDate = new Date() 
+        let userYear = selectedDate.getFullYear()
+        let usermonth = selectedDate.getMonth() +1
+        let userDays = selectedDate.getDate()
+        let currentYear = currentDate.getFullYear()
+        let currentMonth = currentDate.getMonth() +1
+        let currentDays = currentDate.getDate()
+
+        let calculatedYear = 0
+        let calculatedMonth = 0
+        let calculatedDate = 0
+
+        if((30-userDays + currentDays)>30){
+            calculatedDate += (30-userDays + currentDays)%30;
+            calculatedMonth += parseInt((30-userDays + currentDays)/30);
+        }else{
+            calculatedDate += (30-userDays + currentDays)
+        }
+        if((12-usermonth + currentMonth)>12){
+            calculatedMonth += (12-usermonth + currentMonth)%12
+            calculatedYear += parseInt((12-usermonth + currentMonth)/12)
+        }else{
+            calculatedMonth += (12-usermonth + currentMonth)
+        }
+
+        calculatedYear += currentYear - userYear;
+
+        document.querySelector("h3").innerHTML = `You are ${calculatedYear-1},${calculatedMonth-1} months and ${calculatedDate} days old`
+    })
+    
+</script>
+</html>
